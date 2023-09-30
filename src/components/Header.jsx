@@ -11,11 +11,11 @@ export default function Header(props) {
             className="w-8 rounded"
           />
         </a>
-        <div className="m-4 w-0.5 h-6 bg-neutral-600"></div>
+        <div className="m-4 w-0.5 h-6 bg-red-700 rounded"></div>
         <a
           href="/"
           className={
-            "m-4 opacity-60 text-sm font-medium hover:opacity-100 underline-on-hover"
+            "m-4 text-neutral-400 text-sm font-medium hover:text-red-700 underline-on-hover"
           }
         >
           <span className="">Home</span>
@@ -23,7 +23,7 @@ export default function Header(props) {
         <a
           href="/"
           className={
-            "m-4 opacity-60 text-sm font-medium hover:opacity-100 underline-on-hover hidden md:block"
+            "m-4 text-neutral-400 text-sm font-medium hover:text-red-700 underline-on-hover hidden lg:block"
           }
         >
           <span className="">Products</span>
@@ -31,7 +31,7 @@ export default function Header(props) {
         <a
           href="/"
           className={
-            "m-4 opacity-60 text-sm font-medium hover:opacity-100 underline-on-hover hidden md:block"
+            "m-4 text-neutral-400 text-sm font-medium hover:text-red-700 underline-on-hover hidden lg:block"
           }
         >
           <span className="">Contact</span>
@@ -39,21 +39,29 @@ export default function Header(props) {
         <a
           href="/"
           className={
-            "m-4 opacity-60 text-sm font-medium hover:opacity-100 underline-on-hover hidden md:block"
+            "m-4 text-neutral-400 text-sm font-medium hover:text-red-700 underline-on-hover hidden lg:block"
           }
         >
           <span className="">About</span>
         </a>
-        <div className="m-4 w-0.5 h-6 bg-neutral-600"></div>
+        <div className="m-4 w-0.5 h-6 bg-red-700 rounded"></div>
         <input
           type="search"
           placeholder="Search for products..."
-          className="header-input m-4 w-80 h-5 text-sm font-medium text-neutral-400 rounded-lg bg-neutral-800 p-4 border border-neutral-600 focus:outline-none focus:border-neutral-400 hidden lg:block"
+          className="header-input m-4 w-60 h-5 text-sm font-medium text-neutral-400 rounded-lg bg-neutral-800 p-4 border border-red-700 focus:outline-none focus:border-neutral-400 hidden sm:block md:w-80"
         />
         <a
           href="/"
           className={
-            "m-4 opacity-60 text-sm font-medium hover:opacity-100 underline-on-hover"
+            "m-4 text-neutral-400 text-sm font-medium hover:text-red-700 underline-on-hover sm:hidden block"
+          }
+        >
+          <span className="">Search</span>
+        </a>
+        <a
+          href="/"
+          className={
+            "m-4 text-neutral-400 text-sm font-medium hover:text-red-700 underline-on-hover sm:block hidden"
           }
         >
           <span className="">Account</span>
@@ -61,7 +69,7 @@ export default function Header(props) {
         <a
           href="/"
           className={
-            "m-4 opacity-60 text-sm font-medium hover:opacity-100 underline-on-hover"
+            "m-4 text-neutral-400 text-sm font-medium hover:text-red-700 underline-on-hover"
           }
         >
           <span className="">Cart</span>
