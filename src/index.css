@@ -1,13 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100,200,300,400,500,600,700,800,900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  @apply w-full h-full bg-gray-100;
+  font-family: 'Inter', sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+* {
+  transition: 0.3s ease;
+}
+
+.underline-on-hover {
+  /* apply underline transition on hover */
+  position: relative;
+}
+
+.underline-on-hover::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  border-radius: 5px;
+  bottom: -2px;
+  left: 0;
+  background-color: #fff;
+  visibility: hidden;
+  transform: scaleX(0);
+  transition: all 0.3s ease-in-out 0s;
+}
+
+.underline-on-hover:hover::after {
+  visibility: visible;
+  transform: scaleX(1);
+}
+
+.header-input::placeholder {
+  @apply text-neutral-400;
 }
