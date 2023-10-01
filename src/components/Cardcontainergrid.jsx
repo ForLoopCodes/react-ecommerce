@@ -3,7 +3,7 @@ import React from "react";
 export default function Cardcontainer(props) {
   return (
     <div className="w-full flex justify-center items-center overflow-x-scroll hide-scrollbar">
-      <div className="w-content grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-8 p-4 sm:p-8">
+      <div className="w-content grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-0 sm:gap-8">
         {props.products.map((product) => {
           return (
             <div
@@ -14,7 +14,7 @@ export default function Cardcontainer(props) {
                 height: "100%",
                 backgroundPosition: "center",
               }}
-              className="w-52 sm:w-62 md:w-72 h-72 sm:h-80 md:h-96 lg:h-80 xl:h-96 2xl:h-80 flex flex-col justify-center items-center bg-neutral-200 rounded-2xl p-3"
+              className="w-56 scale-75 sm:scale-100 sm:w-62 md:w-72 h-80 sm:h-80 md:h-96 lg:h-80 xl:h-96 2xl:h-80 flex flex-col justify-center items-center bg-neutral-200 rounded-2xl p-3"
             >
               <div className="flex flex-col justify-center items-center mt-40 lg:mt-64">
                 <div className="flex justify-between items-center w-full">
