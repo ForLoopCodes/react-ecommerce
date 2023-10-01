@@ -5,12 +5,30 @@
 
 html,
 body {
-  @apply w-full h-full bg-gray-100;
+  @apply w-full h-full bg-neutral-900 text-neutral-100;
   font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+*::-webkit-scrollbar {
+  @apply w-2 h-2;
+}
+
+*::-webkit-scrollbar-track {
+  @apply bg-neutral-900 w-2;
+}
+
+*::-webkit-scrollbar-thumb {
+  @apply w-2 rounded bg-gradient-to-t from-red-950 to-red-900;
 }
 
 * {
   transition: 0.3s ease;
+  user-select: none;
+}
+
+.horizontalscrollbarhidden::-webkit-scrollbar {
+  display: none;
 }
 
 .underline-on-hover {
@@ -39,4 +57,21 @@ body {
 
 .header-input::placeholder {
   @apply text-neutral-400;
+}
+
+.slideshow {
+  position: relative;
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.slide.active {
+  opacity: 1;
 }
