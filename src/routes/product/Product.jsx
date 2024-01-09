@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import Cardcontainer from "../../components/Cardcontainer";
 import Footer from "../../components/Footer";
 
 export default function Product(props) {
   let currentid = window.location.pathname.split("/")[2] || 0;
-  let size = window.location.pathname.split("/")[3] || 0;
+  const [currentImg, setCurrentImg] = useState(0);
   return (
     <div>
       <div className="mt-24 w-full z-10 flex justify-center pt-24 items-start">
@@ -17,6 +17,9 @@ export default function Product(props) {
                   "url(" + props.products[currentid].allImages[0] + ")",
                 backgroundSize: "cover",
                 backgroundPosition: "center",
+              }}
+              onClick={() => {
+                setCurrentImg(0);
               }}
             >
               <div
@@ -35,6 +38,9 @@ export default function Product(props) {
                 backgroundSize: "cover",
                 backgroundPosition: "center",
               }}
+              onClick={() => {
+                setCurrentImg(1);
+              }}
             >
               <div
                 className="w-full h-full"
@@ -51,6 +57,9 @@ export default function Product(props) {
                   "url(" + props.products[currentid].allImages[2] + ")",
                 backgroundSize: "cover",
                 backgroundPosition: "center",
+              }}
+              onClick={() => {
+                setCurrentImg(2);
               }}
             >
               <div
@@ -69,6 +78,9 @@ export default function Product(props) {
                 backgroundSize: "cover",
                 backgroundPosition: "center",
               }}
+              onClick={() => {
+                setCurrentImg(3);
+              }}
             >
               <div
                 className="w-full h-full"
@@ -82,7 +94,8 @@ export default function Product(props) {
           <div
             className="w-96 h-96 rounded-xl relative overflow-hidden ml-8"
             style={{
-              backgroundImage: `url(` + props.products[currentid].image + `)`,
+              backgroundImage:
+                `url(` + props.products[currentid].allImages[currentImg] + `)`,
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}
@@ -183,7 +196,7 @@ export default function Product(props) {
       </p>
       <Cardcontainer
         products={props.products.filter((product) => {
-          return product.bestSeller == true;
+          return product.bestSeller === true;
         })}
       />
       <h1 className="text-2xl font-bold text-center mt-10 text-neutral-300">

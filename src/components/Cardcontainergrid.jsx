@@ -15,7 +15,7 @@ export default function Cardcontainer(props) {
             >
               <div
                 style={{
-                  backgroundImage: `linear-gradient(to bottom,rgba(0,0,0,0.1), rgba(0,0,0,0.1), rgba(0,0,0,0.2)), url(${product.image})`,
+                  backgroundImage: `linear-gradient(to bottom,rgba(0,0,0,0.1), rgba(0,0,0,0.1), rgba(0,0,0,0.2)), url(${product.allImages[0]})`,
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                 }}
@@ -44,10 +44,10 @@ export default function Cardcontainer(props) {
                   </p>
                   <div className="flex justify-center items-end mt-1">
                     <p className="text-lg font-normal text-neutral-500 line-through mr-2">
-                      ${product.price + 10}
+                      ₹{product.price}
                     </p>
                     <p className="text-lg font-normal text-neutral-300">
-                      ${product.price}
+                      ₹{product.discountPrice}
                     </p>
                   </div>
                 </div>

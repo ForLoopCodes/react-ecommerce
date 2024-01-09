@@ -54,7 +54,7 @@ export default function Home(props) {
       </p>
       <Cardcontainer
         products={props.products.filter((product) => {
-          return product.newArrival == true;
+          return product.newArrival === true;
         })}
       />
       <h1 className="text-2xl font-bold text-center mt-10 text-neutral-300">
@@ -66,7 +66,7 @@ export default function Home(props) {
       </p>
       <Cardcontainer
         products={props.products.filter((product) => {
-          return product.bestSeller == true;
+          return product.bestSeller === true;
         })}
       />
       <h1 className="text-2xl font-bold text-center mt-10 text-neutral-300">
