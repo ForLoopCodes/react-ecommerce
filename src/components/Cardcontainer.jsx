@@ -30,16 +30,19 @@ export default function Cardcontainer(props) {
       onMouseUp={handleMouseUp}
       onMouseLeave={handleMouseUp}
     >
-      <div className="flex flex-nowrap justify-start gap-5 sm:gap-8 lg:gap-8 xl:gap-10 px-4">
+      <div className="flex flex-nowrap justify-start gap-5 sm:gap-8 lg:gap-8 xl:gap-3 px-4">
         {props.products.map((product) => {
           return (
             <div
               key={product.id}
-              className="w-52 sm:w-62 md:w-72 h-content first:ml-5 flex flex-col justify-center relative items-start rounded-3xl p-1.5 hover:scale-105"
+              onClick={() => {
+                window.location.href = `/product/${product.id}`;
+              }}
+              className="w-52 sm:w-62 md:w-52 h-content first:ml-5 flex flex-col justify-center relative items-start rounded-3xl p-1.5 hover:scale-105 z-9"
             >
               <div
                 style={{
-                  backgroundImage: `linear-gradient(to bottom,rgba(0,0,0,0.2), rgba(0,0,0,0.3), rgba(0,0,0,0.8)), url(${product.image})`,
+                  backgroundImage: `linear-gradient(to bottom,rgba(0,0,0,0.1), rgba(0,0,0,0.1), rgba(0,0,0,0.2)), url(${product.image})`,
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                 }}
@@ -63,15 +66,15 @@ export default function Cardcontainer(props) {
               </div>
               <div className="w-full flex flex-col justify-start items-start rounded-b-2xl px-1 py-2 text-sm ">
                 <div className="flex flex-col justify-between items-start w-full">
-                  <p className="text-lg font-medium text-neutral-100 w-full overflow-ellipsis overflow-hidden whitespace-nowrap mt-1">
+                  <p className="text-lg font-medium text-neutral-300 w-full overflow-ellipsis overflow-hidden whitespace-nowrap mt-1">
                     {product.name}
                   </p>
                   <div className="flex justify-center items-end mt-1">
                     <p className="text-lg font-normal text-neutral-500 line-through mr-2">
-                      ${product.price + 10}
+                      ₹{product.price + 10}
                     </p>
-                    <p className="text-lg font-normal text-neutral-300">
-                      ${product.price}
+                    <p className="text-lg font-medium text-neutral-200">
+                      ₹{product.price}
                     </p>
                   </div>
                 </div>

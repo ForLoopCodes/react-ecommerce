@@ -33,77 +33,29 @@ export default function Home(props) {
         </a>
       </div>
       <h1 className="text-2xl font-bold text-center mt-10 text-neutral-300">
+        Crazy Deals
+      </h1>
+      <p className="text-center text-neutral-400 text-sm w-9/12 mx-auto mb-10 mt-3">
+        These crazy deals will blow your mind. Get them while they last!
+      </p>
+      <Slideshow
+        images={[
+          "https://github.com/Joker8200/Imageeee/blob/main/Imagess/Sale.jpeg?raw=true",
+          "https://github.com/Joker8200/Imageeee/blob/main/Imagess/Sale.jpeg?raw=true",
+          "https://github.com/Joker8200/Imageeee/blob/main/Imagess/Sale.jpeg?raw=true",
+        ]}
+      />
+      <h1 className="text-2xl font-bold text-center mt-10 text-neutral-300">
         New Arrivals
       </h1>
       <p className="text-center text-neutral-400 text-sm w-9/12 mx-auto mb-10 mt-3">
         Some of our new arrivals. These are the products that our users love the
         most.
       </p>
-      <Slideshow
-        images={[
-          "https://images-eu.ssl-images-amazon.com/images/G/31/img22/WLA/2023/Jupiter23/Kickstarter/Hero/Final/_D98486283-_IN_WLA_Jupiter23_GW_Heroes_Jupiter1_PC_Hero_3000x1200_2._CB577020131_.jpg",
-          "https://images-eu.ssl-images-amazon.com/images/G/31/img23/Fashion/Event/Gateway/Jup/KSD/PFF-Unrec-3000._CB577063325_.jpg",
-          "https://i.imgur.com/1QZqj5z.png",
-        ]}
-      />
-      <h1 className="text-2xl font-bold text-center mt-10 text-neutral-300">
-        Featured Products
-      </h1>
-      <p className="text-center text-neutral-400 text-sm w-9/12 mx-auto mb-10 mt-3">
-        Some of our featured products. We have crafted these products with love
-        & care.
-      </p>
       <Cardcontainer
-        products={[
-          {
-            id: 1,
-            name: "Mens T-Shirt",
-            price: 25,
-            sizes: ["S", "M", "L", "XL"],
-            image:
-              "https://images-eu.ssl-images-amazon.com/images/G/31/img22/Fashion/Gateway/BAU/BTF-Refresh/May/PF_MF/MF-1-186-116._SY116_CB636110853_.jpg",
-          },
-          {
-            id: 2,
-            name: "Womens T-Shirt",
-            price: 25,
-            sizes: ["S", "M", "L", "XL"],
-            image:
-              "https://images-eu.ssl-images-amazon.com/images/G/31/img2020/img21/kids/WRS_Dec22/PC_QC/WA/3_1X._SY116_CB618751254_.jpg",
-          },
-          {
-            id: 3,
-            name: "Mens Hoodie",
-            price: 35,
-            sizes: ["S", "M", "L", "XL"],
-            image:
-              "https://images-eu.ssl-images-amazon.com/images/G/31/img23/Softlines_JWL_SH_GW_Assets/All_QC_JWLSSH/Sep25/Pcqc2-4-low._SY116_CB578749643_.jpg",
-          },
-          {
-            id: 4,
-            name: "Mens T-Shirt",
-            price: 25,
-            sizes: ["S", "M", "L", "XL"],
-            image:
-              "https://images-eu.ssl-images-amazon.com/images/G/31/img23/Softlines_JWL_SH_GW_Assets/All_QC_JWLSSH/Sep25/PCQC_Jewl_low_res._SY116_CB578749643_.png",
-          },
-          {
-            id: 5,
-            name: "Womens T-Shirt",
-            price: 25,
-            sizes: ["S", "M", "L", "XL"],
-            image:
-              "https://images-eu.ssl-images-amazon.com/images/G/31/img23/Softlines_JWL_SH_GW_Assets/All_QC_JWLSSH/Sep25/Pcqc1-4-low._SY116_CB578749643_.png",
-          },
-          {
-            id: 6,
-            name: "Mens Hoodie",
-            price: 35,
-            sizes: ["S", "M", "L", "XL"],
-            image:
-              "https://images-eu.ssl-images-amazon.com/images/G/31/img23/Softlines_JWL_SH_GW_Assets/All_QC_JWLSSH/Sep25/Pcqc1-4-low._SY116_CB578749643_.png",
-          },
-        ]}
+        products={props.products.filter((product) => {
+          return product.newArrival == true;
+        })}
       />
       <h1 className="text-2xl font-bold text-center mt-10 text-neutral-300">
         Best Sellers
@@ -113,56 +65,9 @@ export default function Home(props) {
         love the most.
       </p>
       <Cardcontainer
-        products={[
-          {
-            id: 1,
-            name: "Mens T-Shirt",
-            price: 25,
-            sizes: ["S", "M", "L", "XL"],
-            image:
-              "https://images-eu.ssl-images-amazon.com/images/G/31/img22/Fashion/Gateway/BAU/BTF-Refresh/May/PF_MF/MF-1-186-116._SY116_CB636110853_.jpg",
-          },
-          {
-            id: 2,
-            name: "Womens T-Shirt",
-            price: 25,
-            sizes: ["S", "M", "L", "XL"],
-            image:
-              "https://images-eu.ssl-images-amazon.com/images/G/31/img2020/img21/kids/WRS_Dec22/PC_QC/WA/3_1X._SY116_CB618751254_.jpg",
-          },
-          {
-            id: 3,
-            name: "Mens Hoodie",
-            price: 35,
-            sizes: ["S", "M", "L", "XL"],
-            image:
-              "https://images-eu.ssl-images-amazon.com/images/G/31/img23/Softlines_JWL_SH_GW_Assets/All_QC_JWLSSH/Sep25/Pcqc2-4-low._SY116_CB578749643_.jpg",
-          },
-          {
-            id: 4,
-            name: "Mens T-Shirt",
-            price: 25,
-            sizes: ["S", "M", "L", "XL"],
-            image:
-              "https://images-eu.ssl-images-amazon.com/images/G/31/img23/Softlines_JWL_SH_GW_Assets/All_QC_JWLSSH/Sep25/PCQC_Jewl_low_res._SY116_CB578749643_.png",
-          },
-          {
-            id: 5,
-            name: "Womens T-Shirt",
-            price: 25,
-            sizes: ["S", "M", "L", "XL"],
-            image:
-              "https://images-eu.ssl-images-amazon.com/images/G/31/img23/Softlines_JWL_SH_GW_Assets/All_QC_JWLSSH/Sep25/Pcqc1-4-low._SY116_CB578749643_.png",
-          },
-          {
-            id: 6,
-            name: "Mens Hoodie",
-            price: 35,
-            sizes: ["S", "M", "L", "XL"],
-            image:
-              "https://images-eu.ssl-images-amazon.com/images/G/31/img23/Softlines_JWL_SH_GW_Assets/All_QC_JWLSSH/Sep25/Pcqc1-4-low._SY116_CB578749643_.png",
-          },
-        ]}
+        products={props.products.filter((product) => {
+          return product.bestSeller == true;
+        })}
       />
       <h1 className="text-2xl font-bold text-center mt-10 text-neutral-300">
         Trending
@@ -189,56 +94,11 @@ export default function Home(props) {
         love the most.
       </p>
       <Cardcontainer
-        products={[
-          {
-            id: 1,
-            name: "Mens T-Shirt",
-            price: 25,
-            sizes: ["S", "M", "L", "XL"],
-            image:
-              "https://images-eu.ssl-images-amazon.com/images/G/31/img22/Fashion/Gateway/BAU/BTF-Refresh/May/PF_MF/MF-1-186-116._SY116_CB636110853_.jpg",
-          },
-          {
-            id: 2,
-            name: "Womens T-Shirt",
-            price: 25,
-            sizes: ["S", "M", "L", "XL"],
-            image:
-              "https://images-eu.ssl-images-amazon.com/images/G/31/img2020/img21/kids/WRS_Dec22/PC_QC/WA/3_1X._SY116_CB618751254_.jpg",
-          },
-          {
-            id: 3,
-            name: "Mens Hoodie",
-            price: 35,
-            sizes: ["S", "M", "L", "XL"],
-            image:
-              "https://images-eu.ssl-images-amazon.com/images/G/31/img23/Softlines_JWL_SH_GW_Assets/All_QC_JWLSSH/Sep25/Pcqc2-4-low._SY116_CB578749643_.jpg",
-          },
-          {
-            id: 4,
-            name: "Mens T-Shirt",
-            price: 25,
-            sizes: ["S", "M", "L", "XL"],
-            image:
-              "https://images-eu.ssl-images-amazon.com/images/G/31/img23/Softlines_JWL_SH_GW_Assets/All_QC_JWLSSH/Sep25/PCQC_Jewl_low_res._SY116_CB578749643_.png",
-          },
-          {
-            id: 5,
-            name: "Womens T-Shirt",
-            price: 25,
-            sizes: ["S", "M", "L", "XL"],
-            image:
-              "https://images-eu.ssl-images-amazon.com/images/G/31/img23/Softlines_JWL_SH_GW_Assets/All_QC_JWLSSH/Sep25/Pcqc1-4-low._SY116_CB578749643_.png",
-          },
-          {
-            id: 6,
-            name: "Mens Hoodie",
-            price: 35,
-            sizes: ["S", "M", "L", "XL"],
-            image:
-              "https://images-eu.ssl-images-amazon.com/images/G/31/img23/Softlines_JWL_SH_GW_Assets/All_QC_JWLSSH/Sep25/Pcqc1-4-low._SY116_CB578749643_.png",
-          },
-        ]}
+        products={props.products.filter(
+          (product) =>
+            product.category.includes("shirt") ||
+            product.category.includes("t-shirt")
+        )}
       />
       <h1
         className="text-2xl font-bold text-center mt-10 text-neutral-300"
@@ -251,56 +111,11 @@ export default function Home(props) {
         love the most.
       </p>
       <Cardcontainer
-        products={[
-          {
-            id: 1,
-            name: "Mens T-Shirt",
-            price: 25,
-            sizes: ["S", "M", "L", "XL"],
-            image:
-              "https://images-eu.ssl-images-amazon.com/images/G/31/img22/Fashion/Gateway/BAU/BTF-Refresh/May/PF_MF/MF-1-186-116._SY116_CB636110853_.jpg",
-          },
-          {
-            id: 2,
-            name: "Womens T-Shirt",
-            price: 25,
-            sizes: ["S", "M", "L", "XL"],
-            image:
-              "https://images-eu.ssl-images-amazon.com/images/G/31/img2020/img21/kids/WRS_Dec22/PC_QC/WA/3_1X._SY116_CB618751254_.jpg",
-          },
-          {
-            id: 3,
-            name: "Mens Hoodie",
-            price: 35,
-            sizes: ["S", "M", "L", "XL"],
-            image:
-              "https://images-eu.ssl-images-amazon.com/images/G/31/img23/Softlines_JWL_SH_GW_Assets/All_QC_JWLSSH/Sep25/Pcqc2-4-low._SY116_CB578749643_.jpg",
-          },
-          {
-            id: 4,
-            name: "Mens T-Shirt",
-            price: 25,
-            sizes: ["S", "M", "L", "XL"],
-            image:
-              "https://images-eu.ssl-images-amazon.com/images/G/31/img23/Softlines_JWL_SH_GW_Assets/All_QC_JWLSSH/Sep25/PCQC_Jewl_low_res._SY116_CB578749643_.png",
-          },
-          {
-            id: 5,
-            name: "Womens T-Shirt",
-            price: 25,
-            sizes: ["S", "M", "L", "XL"],
-            image:
-              "https://images-eu.ssl-images-amazon.com/images/G/31/img23/Softlines_JWL_SH_GW_Assets/All_QC_JWLSSH/Sep25/Pcqc1-4-low._SY116_CB578749643_.png",
-          },
-          {
-            id: 6,
-            name: "Mens Hoodie",
-            price: 35,
-            sizes: ["S", "M", "L", "XL"],
-            image:
-              "https://images-eu.ssl-images-amazon.com/images/G/31/img23/Softlines_JWL_SH_GW_Assets/All_QC_JWLSSH/Sep25/Pcqc1-4-low._SY116_CB578749643_.png",
-          },
-        ]}
+        products={props.products.filter(
+          (product) =>
+            product.category.includes("hoodie") ||
+            product.category.includes("jacket")
+        )}
       />
       <h1
         className="text-2xl font-bold text-center mt-10 text-neutral-300"
@@ -313,56 +128,10 @@ export default function Home(props) {
         love the most.
       </p>
       <Cardcontainer
-        products={[
-          {
-            id: 1,
-            name: "Mens T-Shirt",
-            price: 25,
-            sizes: ["S", "M", "L", "XL"],
-            image:
-              "https://images-eu.ssl-images-amazon.com/images/G/31/img22/Fashion/Gateway/BAU/BTF-Refresh/May/PF_MF/MF-1-186-116._SY116_CB636110853_.jpg",
-          },
-          {
-            id: 2,
-            name: "Womens T-Shirt",
-            price: 25,
-            sizes: ["S", "M", "L", "XL"],
-            image:
-              "https://images-eu.ssl-images-amazon.com/images/G/31/img2020/img21/kids/WRS_Dec22/PC_QC/WA/3_1X._SY116_CB618751254_.jpg",
-          },
-          {
-            id: 3,
-            name: "Mens Hoodie",
-            price: 35,
-            sizes: ["S", "M", "L", "XL"],
-            image:
-              "https://images-eu.ssl-images-amazon.com/images/G/31/img23/Softlines_JWL_SH_GW_Assets/All_QC_JWLSSH/Sep25/Pcqc2-4-low._SY116_CB578749643_.jpg",
-          },
-          {
-            id: 4,
-            name: "Mens T-Shirt",
-            price: 25,
-            sizes: ["S", "M", "L", "XL"],
-            image:
-              "https://images-eu.ssl-images-amazon.com/images/G/31/img23/Softlines_JWL_SH_GW_Assets/All_QC_JWLSSH/Sep25/PCQC_Jewl_low_res._SY116_CB578749643_.png",
-          },
-          {
-            id: 5,
-            name: "Womens T-Shirt",
-            price: 25,
-            sizes: ["S", "M", "L", "XL"],
-            image:
-              "https://images-eu.ssl-images-amazon.com/images/G/31/img23/Softlines_JWL_SH_GW_Assets/All_QC_JWLSSH/Sep25/Pcqc1-4-low._SY116_CB578749643_.png",
-          },
-          {
-            id: 6,
-            name: "Mens Hoodie",
-            price: 35,
-            sizes: ["S", "M", "L", "XL"],
-            image:
-              "https://images-eu.ssl-images-amazon.com/images/G/31/img23/Softlines_JWL_SH_GW_Assets/All_QC_JWLSSH/Sep25/Pcqc1-4-low._SY116_CB578749643_.png",
-          },
-        ]}
+        products={props.products.filter(
+          (product) =>
+            product.category.includes("hat") || product.category.includes("cap")
+        )}
       />
       <h1
         className="text-2xl font-bold text-center mt-10 text-neutral-300"
@@ -375,56 +144,11 @@ export default function Home(props) {
         love the most.
       </p>
       <Cardcontainer
-        products={[
-          {
-            id: 1,
-            name: "Mens T-Shirt",
-            price: 25,
-            sizes: ["S", "M", "L", "XL"],
-            image:
-              "https://images-eu.ssl-images-amazon.com/images/G/31/img22/Fashion/Gateway/BAU/BTF-Refresh/May/PF_MF/MF-1-186-116._SY116_CB636110853_.jpg",
-          },
-          {
-            id: 2,
-            name: "Womens T-Shirt",
-            price: 25,
-            sizes: ["S", "M", "L", "XL"],
-            image:
-              "https://images-eu.ssl-images-amazon.com/images/G/31/img2020/img21/kids/WRS_Dec22/PC_QC/WA/3_1X._SY116_CB618751254_.jpg",
-          },
-          {
-            id: 3,
-            name: "Mens Hoodie",
-            price: 35,
-            sizes: ["S", "M", "L", "XL"],
-            image:
-              "https://images-eu.ssl-images-amazon.com/images/G/31/img23/Softlines_JWL_SH_GW_Assets/All_QC_JWLSSH/Sep25/Pcqc2-4-low._SY116_CB578749643_.jpg",
-          },
-          {
-            id: 4,
-            name: "Mens T-Shirt",
-            price: 25,
-            sizes: ["S", "M", "L", "XL"],
-            image:
-              "https://images-eu.ssl-images-amazon.com/images/G/31/img23/Softlines_JWL_SH_GW_Assets/All_QC_JWLSSH/Sep25/PCQC_Jewl_low_res._SY116_CB578749643_.png",
-          },
-          {
-            id: 5,
-            name: "Womens T-Shirt",
-            price: 25,
-            sizes: ["S", "M", "L", "XL"],
-            image:
-              "https://images-eu.ssl-images-amazon.com/images/G/31/img23/Softlines_JWL_SH_GW_Assets/All_QC_JWLSSH/Sep25/Pcqc1-4-low._SY116_CB578749643_.png",
-          },
-          {
-            id: 6,
-            name: "Mens Hoodie",
-            price: 35,
-            sizes: ["S", "M", "L", "XL"],
-            image:
-              "https://images-eu.ssl-images-amazon.com/images/G/31/img23/Softlines_JWL_SH_GW_Assets/All_QC_JWLSSH/Sep25/Pcqc1-4-low._SY116_CB578749643_.png",
-          },
-        ]}
+        products={props.products.filter(
+          (product) =>
+            product.category.includes("accessory") ||
+            product.category.includes("accessories")
+        )}
       />
       <h1 className="text-2xl font-bold text-center mt-10 text-neutral-300">
         Trying to find something else?
@@ -451,7 +175,6 @@ export default function Home(props) {
         </a>{" "}
         page.
       </p>
-
       <Footer />
     </div>
   );
