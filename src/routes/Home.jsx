@@ -40,9 +40,9 @@ export default function Home(props) {
       </p>
       <Slideshow
         images={[
-          "https://github.com/Joker8200/Imageeee/blob/main/Imagess/Sale.jpeg?raw=true",
-          "https://github.com/Joker8200/Imageeee/blob/main/Imagess/Sale.jpeg?raw=true",
-          "https://github.com/Joker8200/Imageeee/blob/main/Imagess/Sale.jpeg?raw=true",
+          "https://images-eu.ssl-images-amazon.com/images/G/31/img22/WLA/2023/Jupiter23/Kickstarter/Hero/Final/_D98486283-_IN_WLA_Jupiter23_GW_Heroes_Jupiter1_PC_Hero_3000x1200_2._CB577020131_.jpg",
+          "https://images-eu.ssl-images-amazon.com/images/G/31/img23/Fashion/Event/Gateway/Jup/KSD/PFF-Unrec-3000._CB577063325_.jpg",
+          "https://i.imgur.com/1QZqj5z.png",
         ]}
       />
       <h1 className="text-2xl font-bold text-center mt-10 text-neutral-300">

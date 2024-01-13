@@ -8,7 +8,7 @@ export default function Header(props) {
           <a href="/" className="m-5">
             <img
               alt="logo"
-              src="https://yt3.googleusercontent.com/7iv9P4fvqmwNw8Zp7NrkyIamnVao-06ykJPQssrmKyzWb4mmYCR4YeqHob8bvUp7vlQ3vrhlbg=s176-c-k-c0x00ffffff-no-rj"
+              src="https://raw.githubusercontent.com/Joker8200/Imageeee/main/C2.png"
               className="w-8 rounded"
             />
           </a>

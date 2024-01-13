@@ -122,7 +122,36 @@ export default function Product(props) {
             </p>
           </div>
           <div className="flex justify-start items-center gap-0 mt-5">
-            <div className="flex justify-center w-1/2 mr-5 items-center h-10 rounded-xl px-10 py-6 pl-8 bg-neutral-600 bg-opacity-60 border border-neutral-800 hover:border-red-900 hover:bg-opacity-80">
+            <div
+              className="flex justify-center w-1/2 mr-5 items-center h-10 rounded-xl px-10 py-6 pl-8 bg-neutral-600 bg-opacity-60 border border-neutral-800 hover:border-red-900 hover:bg-opacity-80"
+              onClick={() => {
+                if (
+                  props.cartData.filter((product) => {
+                    return product.id === props.products[currentid].id;
+                  }).length > 0
+                ) {
+                  props.setCartData(
+                    props.cartData.map((product) => {
+                      if (product.id === props.products[currentid].id) {
+                        return {
+                          id: product.id,
+                          quantity: product.quantity + 1,
+                        };
+                      }
+                      return product;
+                    })
+                  );
+                } else {
+                  props.setCartData([
+                    ...props.cartData,
+                    {
+                      id: props.products[currentid].id,
+                      quantity: 1,
+                    },
+                  ]);
+                }
+              }}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -137,7 +166,15 @@ export default function Product(props) {
                   d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"
                 />
               </svg>
-              <div>Add to cart</div>
+              <div>
+                {props.cartData.filter((product) => {
+                  return product.id === props.products[currentid].id;
+                }).length > 0
+                  ? props.cartData.filter((product) => {
+                      return product.id === props.products[currentid].id;
+                    })[0].quantity
+                  : "Add to cart"}
+              </div>
             </div>
             <div className="flex justify-center w-1/2 items-center h-10 rounded-xl px-10 py-6 pl-8 bg-red-600 bg-opacity-100 border border-neutral-800 hover:border-red-900 hover:bg-opacity-80">
               <svg

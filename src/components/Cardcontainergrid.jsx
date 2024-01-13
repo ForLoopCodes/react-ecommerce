@@ -1,6 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 
 export default function Cardcontainer(props) {
+  const [cartData, setCartData] = useState(
+    JSON.parse(localStorage.getItem("cartData")) || []
+  );
+  const setCartDataFunction = (v) => {
+    setCartData(v);
+    console.log(v);
+    localStorage.setItem("cartData", JSON.stringify(v));
+  };
   return (
     <div className="w-full flex justify-center items-center overflow-x-scroll hide-scrollbar overflow-y-hidden">
       <div className="w-content grid grid-cols-2 md:grid-cols-2 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7 gap-0 sm:gap-3 gap-y-4">
@@ -8,12 +16,12 @@ export default function Cardcontainer(props) {
           return (
             <div
               key={product.id}
-              onClick={() => {
-                window.location.href = `/product/${product.id}`;
-              }}
               className="w-52 sm:w-62 md:w-52 h-content flex flex-col justify-center relative items-start rounded-3xl p-1.5 hover:scale-105"
             >
               <div
+                onClick={() => {
+                  window.location.href = `/product/${product.id}`;
+                }}
                 style={{
                   backgroundImage: `linear-gradient(to bottom,rgba(0,0,0,0.1), rgba(0,0,0,0.1), rgba(0,0,0,0.2)), url(${product.allImages[0]})`,
                   backgroundSize: "cover",
@@ -21,23 +29,64 @@ export default function Cardcontainer(props) {
                 }}
                 className="w-full rounded-lg aspect-square"
               ></div>
-              <div className="cart-icon w-10 h-10 rounded-md bg-neutral-100 bg-opacity-60 flex justify-center items-center absolute z-10 top-4 right-4 hover:bg-opacity-80">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="black"
-                  className="w-6 h-6"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"
-                  />
-                </svg>
+              <div
+                className="cart-icon w-10 h-10 rounded-md bg-neutral-100 bg-opacity-60 flex justify-center items-center absolute z-10 top-4 right-4 hover:bg-opacity-80"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  if (
+                    cartData.filter((item) => item.id === product.id).length > 0
+                  ) {
+                    setCartDataFunction(
+                      cartData.map((item) => {
+                        if (item.id === product.id) {
+                          return {
+                            ...item,
+                            quantity: item.quantity + 1,
+                          };
+                        } else {
+                          return item;
+                        }
+                      })
+                    );
+                  } else {
+                    setCartDataFunction([
+                      ...cartData,
+                      { ...product, quantity: 1 },
+                    ]);
+                  }
+                }}
+              >
+                {cartData.filter((item) => item.id === product.id).length >
+                0 ? (
+                  <div className="w-6 h-6 text-center text-black">
+                    {
+                      cartData.filter((item) => item.id === product.id)[0]
+                        .quantity
+                    }
+                  </div>
+                ) : (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1.5}
+                    stroke="black"
+                    className="w-6 h-6"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"
+                    />
+                  </svg>
+                )}
               </div>
-              <div className="w-full flex flex-col justify-start items-start rounded-b-2xl px-1 py-2 text-sm ">
+              <div
+                className="w-full flex flex-col justify-start items-start rounded-b-2xl px-1 py-2 text-sm "
+                onClick={() => {
+                  window.location.href = `/product/${product.id}`;
+                }}
+              >
                 <div className="flex flex-col justify-between items-start w-full">
                   <p className="text-lg font-medium text-neutral-100 w-full overflow-ellipsis overflow-hidden whitespace-nowrap mt-1">
                     {product.name}

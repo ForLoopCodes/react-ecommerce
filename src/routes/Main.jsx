@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "../components/Header";
 import Home from "./Home";
 import Products from "./products/Products";
@@ -7,10 +7,19 @@ import Cart from "./cart/Cart";
 import Search from "./search/Search";
 import Contact from "./contact/Contact";
 import returnProducts from "./returnproducts";
+import Checkout from "./checkout/Checkout";
 import Footer from "../components/Footer";
 
 export default function Main(props) {
   const route = window.location.pathname.split("/")[1];
+  const [cartData, setCartData] = useState(
+    JSON.parse(localStorage.getItem("cartData")) || []
+  );
+  const setCartDataFunction = (v) => {
+    setCartData(v);
+    console.log(v);
+    localStorage.setItem("cartData", JSON.stringify(v));
+  };
   const products = returnProducts();
   return (
     <div>
@@ -22,9 +31,19 @@ export default function Main(props) {
       ) : route === "contact" ? (
         <Contact products={products} />
       ) : route === "product" ? (
-        <Product products={products} />
+        <Product
+          products={products}
+          cartData={cartData}
+          setCartData={setCartDataFunction}
+        />
       ) : route === "cart" ? (
-        <Cart products={products} />
+        <Cart
+          products={products}
+          cartData={cartData}
+          setCartData={setCartDataFunction}
+        />
+      ) : route === "checkout" ? (
+        <Checkout products={products} cartData={cartData} />
       ) : route === "search" ? (
         <Search
           products={products}
