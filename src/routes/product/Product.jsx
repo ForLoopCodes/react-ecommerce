@@ -176,7 +176,12 @@ export default function Product(props) {
                   : "Add to cart"}
               </div>
             </div>
-            <div className="flex justify-center w-1/2 items-center h-10 rounded-xl px-10 py-6 pl-8 bg-red-600 bg-opacity-100 border border-neutral-800 hover:border-red-900 hover:bg-opacity-80">
+            <div
+              className="flex justify-center w-1/2 items-center h-10 rounded-xl px-10 py-6 pl-8 bg-red-600 bg-opacity-100 border border-neutral-800 hover:border-red-900 hover:bg-opacity-80"
+              onClick={() => {
+                window.location.href = "/checkout";
+              }}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"

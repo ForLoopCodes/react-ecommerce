@@ -15,7 +15,11 @@ export default function Cart(props) {
   const handleDecrement = (productId) => {
     const newCartData = [...cartData];
     const index = newCartData.findIndex((item) => item.id === productId);
-    newCartData[index].quantity -= 1;
+    if (newCartData[index].quantity > 1) {
+      newCartData[index].quantity -= 1;
+    } else {
+      newCartData.splice(index, 1);
+    }
     setCartData(newCartData);
   };
 
